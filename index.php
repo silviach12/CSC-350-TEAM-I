@@ -1,4 +1,6 @@
 <?php include_once 'filesLogic.php';?>
+<?php //include_once 'logic.php';?>
+
 <html>
 <head>
 <title> Term Scheduling </title>
