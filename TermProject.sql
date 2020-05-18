@@ -46,7 +46,7 @@ DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
--- Table `csc_courses`.`section`
+-- Table `csc_courses`.`sections`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `csc_courses`.`sections` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -56,7 +56,9 @@ CREATE TABLE IF NOT EXISTS `csc_courses`.`sections` (
   PRIMARY KEY (`id`),
   CONSTRAINT `sections_ibfk_1`
     FOREIGN KEY (`course_id`)
-    REFERENCES `csc_courses`.`courses` (`id`))
+    REFERENCES `csc_courses`.`courses` (`id`)
+    ON DELETE CASCADE)
+    
 ENGINE = InnoDB
 AUTO_INCREMENT = 14
 DEFAULT CHARACTER SET = utf8mb4;
@@ -76,10 +78,13 @@ CREATE TABLE IF NOT EXISTS `csc_courses`.`time_slot` (
   PRIMARY KEY (`id`),
   CONSTRAINT `time_slot_ibfk_1`
     FOREIGN KEY (`section_id`)
-    REFERENCES `csc_courses`.`sections` (`id`),
+    REFERENCES `csc_courses`.`sections` (`id`)
+    ON DELETE CASCADE,
   CONSTRAINT `time_slot_ibfk_4`
     FOREIGN KEY (`room_id`)
-    REFERENCES `csc_courses`.`rooms` (`id`))
+    REFERENCES `csc_courses`.`rooms` (`id`)
+    ON DELETE CASCADE
+    )
 ENGINE = InnoDB
 AUTO_INCREMENT = 841
 DEFAULT CHARACTER SET = utf8mb4;
